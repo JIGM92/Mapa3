@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -40,7 +39,6 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/Area_Proyecto_2.js"></script>
         <script src="data/Proyecto_Incidentes_3.js"></script>
         <script src="data/Incidentes_4.js"></script>
@@ -376,6 +374,30 @@
                     <tr>\
                         <td class="visible-with-data" id="CONTR_6"colspan="2"><strong>CONTR_6</strong><br />' + (feature.properties['CONTR_6'] !== null ? autolinker.link(feature.properties['CONTR_6'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_1'] !== null ? autolinker.link(feature.properties['No_HALLA_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_2'] !== null ? autolinker.link(feature.properties['No_HALLA_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_3'] !== null ? autolinker.link(feature.properties['No_HALLA_3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_4'] !== null ? autolinker.link(feature.properties['No_HALLA_4'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_5'] !== null ? autolinker.link(feature.properties['No_HALLA_5'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No_HALLA_6'] !== null ? autolinker.link(feature.properties['No_HALLA_6'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="TOTAL_HALL"colspan="2"><strong>TOTAL_HALL</strong><br />' + (feature.properties['TOTAL_HALL'] !== null ? autolinker.link(feature.properties['TOTAL_HALL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="TOTAL_FACT"colspan="2"><strong>TOTAL_FACT</strong><br />' + (feature.properties['TOTAL_FACT'] !== null ? autolinker.link(feature.properties['TOTAL_FACT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -385,8 +407,8 @@
         }
 
         function style_Proyecto_Incidentes_3_0(feature) {
-            switch(String(feature.properties['Descripcio'])) {
-                case 'Brechas L.E.E':
+            switch(String(feature.properties['TOTAL_FACT'])) {
+                case 'AtmósferaSuelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -397,11 +419,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(132,215,49,1.0)',
+                fillColor: 'rgba(222,186,40,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Concretera':
+                case 'FloraFaunaSuelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -412,11 +434,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(116,227,227,1.0)',
+                fillColor: 'rgba(200,24,33,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Derecho de Via OYM':
+                case 'Suelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -427,11 +449,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(53,231,97,1.0)',
+                fillColor: 'rgba(118,212,67,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Derecho Via SARE':
+                case 'SueloAguaSueloSuelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -442,11 +464,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(220,21,21,1.0)',
+                fillColor: 'rgba(33,210,124,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Poligono Afectaciones':
+                case 'SueloSueloSuelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -457,11 +479,11 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(101,132,227,1.0)',
+                fillColor: 'rgba(127,180,211,1.0)',
                 interactive: true,
             }
                     break;
-                case 'Subestacion Electrica':
+                case 'SueloSueloSueloSueloSueloSuelo':
                     return {
                 pane: 'pane_Proyecto_Incidentes_3',
                 opacity: 1,
@@ -472,22 +494,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(237,59,193,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Zona Aerogenerador':
-                    return {
-                pane: 'pane_Proyecto_Incidentes_3',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(211,188,120,1.0)',
+                fillColor: 'rgba(234,41,215,1.0)',
                 interactive: true,
             }
                     break;
@@ -502,7 +509,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(169,111,231,1.0)',
+                fillColor: 'rgba(117,85,233,1.0)',
                 interactive: true,
             }
                     break;
@@ -726,7 +733,7 @@
         var baseMaps = {};
         var overlaysTree = [
             {label: 'Incidentes<br /><table><tr><td style="text-align: center;"><img src="legend/Incidentes_4_Agua0.png" /></td><td>Agua</td></tr><tr><td style="text-align: center;"><img src="legend/Incidentes_4_Atmósfera1.png" /></td><td>Atmósfera</td></tr><tr><td style="text-align: center;"><img src="legend/Incidentes_4_Fauna2.png" /></td><td>Fauna</td></tr><tr><td style="text-align: center;"><img src="legend/Incidentes_4_Flora3.png" /></td><td>Flora</td></tr><tr><td style="text-align: center;"><img src="legend/Incidentes_4_Suelo4.png" /></td><td>Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Incidentes_4_5.png" /></td><td></td></tr></table>', layer: layer_Incidentes_4},
-            {label: 'Proyecto_Incidentes<br /><table><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_BrechasLEE0.png" /></td><td>Brechas L.E.E</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_Concretera1.png" /></td><td>Concretera</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_DerechodeViaOYM2.png" /></td><td>Derecho de Via OYM</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_DerechoViaSARE3.png" /></td><td>Derecho Via SARE</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_PoligonoAfectaciones4.png" /></td><td>Poligono Afectaciones</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_SubestacionElectrica5.png" /></td><td>Subestacion Electrica</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_ZonaAerogenerador6.png" /></td><td>Zona Aerogenerador</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_7.png" /></td><td></td></tr></table>', layer: layer_Proyecto_Incidentes_3},
+            {label: 'Proyecto_Incidentes<br /><table><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_AtmósferaSuelo0.png" /></td><td>Atmós, fera, Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_FloraFaunaSuelo1.png" /></td><td>Flora, Fauna, Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_Suelo2.png" /></td><td>Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_SueloAguaSueloSuelo3.png" /></td><td>Suelo, Agua, Suelo, Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_SueloSueloSuelo4.png" /></td><td>Suelo, Suelo, Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_SueloSueloSueloSueloSueloSuelo5.png" /></td><td>Suelo, Suelo, Suelo, Suelo, Suelo, Suelo</td></tr><tr><td style="text-align: center;"><img src="legend/Proyecto_Incidentes_3_6.png" /></td><td></td></tr></table>', layer: layer_Proyecto_Incidentes_3},
             {label: '<img src="legend/Area_Proyecto_2.png" /> Area_Proyecto', layer: layer_Area_Proyecto_2},
             {label: "Google Satellite", layer: layer_GoogleSatellite_1},
             {label: "Google Terrain", layer: layer_GoogleTerrain_0},]
@@ -741,13 +748,29 @@
         });
         lay.addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_Incidentes_4,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'FACTOR_AMB'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
+        var i = 0;
+        layer_Proyecto_Incidentes_3.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['TOTAL_HALL'] !== null?String('<div style="color: #323232; font-size: 20pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['TOTAL_HALL']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Proyecto_Incidentes_3'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_Proyecto_Incidentes_3]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Proyecto_Incidentes_3]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Proyecto_Incidentes_3]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Proyecto_Incidentes_3]);
+        });
         </script>
     </body>
 </html>
